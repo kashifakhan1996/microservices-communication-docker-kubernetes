@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  orderservice:
+    image: orderservice:latest
+    build: ./order-service
+    ports:
+      - 8080:8080
+  inventoryservice:
+    image: inventoryservice:latest
+    build: ./inventory-service
+    ports:
+      - 8081:8081
+  kafka:
+    image: debezium/kafka:1.12-cp-kafka-8.3.1
+    ports:
+      - 9092:9092
+
